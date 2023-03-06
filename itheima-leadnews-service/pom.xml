@@ -13,6 +13,6 @@
     <packaging>pom</packaging>
     <description>所有微服务所在服务工程</description>
     <modules>
-        <module>theima-leadnews-service-admin</module>
+        <module>itheima-leadnews-service-admin</module>
     </modules>
 </project>
