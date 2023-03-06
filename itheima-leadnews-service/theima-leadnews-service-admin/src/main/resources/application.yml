@@ -13,6 +13,11 @@ spring:
     url: jdbc:mysql://192.168.211.136:3306/leadnews_admin?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=&serverTimezone=Asia/Shanghai
     username: root
     password: 123456
+  cloud:
+    nacos:
+      server-addr: 192.168.211.136:8848
+      discovery:
+        server-addr: ${spring.cloud.nacos.server-addr}
 logging:
   level.com.itheima: debug
 ---
