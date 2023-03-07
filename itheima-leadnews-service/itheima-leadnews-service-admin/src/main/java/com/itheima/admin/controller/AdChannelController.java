@@ -2,6 +2,7 @@ package com.itheima.admin.controller;
 
 import com.itheima.admin.pojo.AdChannel;
 import com.itheima.admin.service.AdChannelService;
+import com.itheima.common.exception.LeadNewsException;
 import com.itheima.common.pojo.PageInfo;
 import com.itheima.common.pojo.PageRequestDto;
 import com.itheima.common.pojo.Result;
@@ -97,6 +98,22 @@ public class AdChannelController {
             return Result.error();
         }
         return Result.ok();
+    }
+
+    /**
+     * 测试异常
+     * @return
+     * @throws LeadNewsException
+     */
+    @GetMapping("/test")
+    public String test() throws LeadNewsException
+    {
+        //int a = 1 / 0 ;
+        //业务代码调用
+        if (1 == 1) {
+            throw new LeadNewsException("抛出自定义异常");
+        }
+        return "abc";
     }
 
 }
