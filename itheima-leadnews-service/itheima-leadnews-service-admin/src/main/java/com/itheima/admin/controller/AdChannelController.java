@@ -28,8 +28,9 @@ public class AdChannelController {
      * 查询所有
      */
     @GetMapping("/findAll")
-    @ApiOperation(value="查询所有",notes = "这个是频道管理里面查询所有的频道测试用的",tags ="频道管理" )
-    public Result<List<AdChannel>> findAll() {
+    @ApiOperation(value = "查询所有", notes = "这个是频道管理里面查询所有的频道测试用的", tags = "频道管理")
+    public Result<List<AdChannel>> findAll()
+    {
         List<AdChannel> list = adChannelService.list();
         return Result.ok(list);
     }
@@ -38,8 +39,9 @@ public class AdChannelController {
      * 顺便 就能通过代码生成接口文档
      */
     @PostMapping("/search")
-    public Result<PageInfo<AdChannel>> search(@RequestBody PageRequestDto<AdChannel> pageRequestDto){
-        PageInfo<AdChannel> pageInfo =  adChannelService.search(pageRequestDto);
+    public Result<PageInfo<AdChannel>> search(@RequestBody PageRequestDto<AdChannel> pageRequestDto)
+    {
+        PageInfo<AdChannel> pageInfo = adChannelService.search(pageRequestDto);
         return Result.ok(pageInfo);
     }
 
@@ -47,7 +49,8 @@ public class AdChannelController {
      * 新增
      */
     @PostMapping
-    public Result insert(@RequestBody AdChannel adChannel) {
+    public Result insert(@RequestBody AdChannel adChannel)
+    {
         boolean flag = adChannelService.save(adChannel);
         if (!flag) {
             return Result.error();
@@ -60,7 +63,8 @@ public class AdChannelController {
      * 根据Id主键进行删除频道
      */
     @DeleteMapping("/{id}")
-    public Result deleteById(@PathVariable(name = "id") Integer id) {
+    public Result deleteById(@PathVariable(name = "id") Integer id)
+    {
         boolean flag = adChannelService.removeById(id);
         if (!flag) {
             return Result.error();
@@ -73,7 +77,8 @@ public class AdChannelController {
      * 根据id主键获取频道信息
      */
     @GetMapping("/{id}")
-    public Result<AdChannel> findById(@PathVariable(name = "id") Integer id) {
+    public Result<AdChannel> findById(@PathVariable(name = "id") Integer id)
+    {
         AdChannel channel = adChannelService.getById(id);
         return Result.ok(channel);
     }
@@ -82,7 +87,8 @@ public class AdChannelController {
      * 根据id主键进行修改频道
      */
     @PutMapping
-    public Result updateById(@RequestBody AdChannel adChannel) {
+    public Result updateById(@RequestBody AdChannel adChannel)
+    {
         if (adChannel.getId() == null) {
             return Result.errorMessage("必须带有主键值", StatusCode.PARAM_ERROR.code(), null);
         }
