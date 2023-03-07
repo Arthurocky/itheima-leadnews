@@ -1,7 +1,10 @@
 package com.itheima.admin.config;
 
+import com.github.xiaoymin.knife4j.spring.annotations.EnableKnife4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import springfox.bean.validators.configuration.BeanValidatorPluginsConfiguration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -13,12 +16,15 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.HashSet;
 
-
 /**
  * @author Arthurocky
  */
 @Configuration
+//开启swagger(http://localhost:9001/swagger-ui.html)
 @EnableSwagger2
+//开启knife4j(http://localhost:9001/doc.html)
+@EnableKnife4j
+@Import(BeanValidatorPluginsConfiguration.class)
 public class SwaggerConfiguration {
 
    @Bean
@@ -30,8 +36,10 @@ public class SwaggerConfiguration {
               .apiInfo(buildApiInfo())
               //设置返回值数据类型为json
               .produces(strings)
+              //分组名称
+              .groupName("1.0")
               .select()
-              // 要扫描的API(Controller)基础包
+              // 要扫描的API(Controller)基础包路径
               .apis(RequestHandlerSelectors.basePackage("com.itheima"))
               .paths(PathSelectors.any())
               .build();
