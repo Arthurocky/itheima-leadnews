@@ -25,7 +25,7 @@ import java.util.List;
 public class AdChannelController extends AbstractCoreController<AdChannel> {
 
     //@Autowird 默认已设计自动注入
-    public AdChannelController(AdChannelService adChannelService)
+    public AdChannelController(@Autowired AdChannelService adChannelService)
     {
         super(adChannelService);
     }
