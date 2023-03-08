@@ -35,5 +35,10 @@ public class AdChannelController extends AbstractCoreController<AdChannel> {
         super(coreService);
     }*/
 
+    @GetMapping("/test")
+    public String test(){
+        int a=1/0;
+        return "1";
+    }
 
 }
