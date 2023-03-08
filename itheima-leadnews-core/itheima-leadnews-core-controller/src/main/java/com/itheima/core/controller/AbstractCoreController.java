@@ -19,6 +19,9 @@ import java.lang.reflect.Field;
 import java.util.List;
 
 
+/**
+ * @author Arthurocky
+ */
 public abstract class AbstractCoreController<T> implements ICoreController<T> {
 
 

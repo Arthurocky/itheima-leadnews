@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 /**
  * @author Arthurocky
  */
-//标识为全局异常处理器
-@RestControllerAdvice
+@RestControllerAdvice//标识为全局异常处理器
 public class GlobalExceptionHandler {
 
 
