@@ -3,6 +3,7 @@ package com.itheima.admin.controller;
 import com.itheima.admin.pojo.AdSensitive;
 import com.itheima.admin.service.AdSensitiveService;
 import com.itheima.core.controller.AbstractCoreController;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/adSensitive")
+@Api(value="敏感词信息表",tags = "AdSensitiveController")
 public class AdSensitiveController extends AbstractCoreController<AdSensitive> {
 
     /*public AdSensitiveController(IService<AdSensitive> coreService)
