@@ -16,6 +16,7 @@
         <module>itheima-leadnews-service-admin</module>
         <module>itheima-leadnews-service-user</module>
         <module>itheima-leadnews-service-article</module>
+        <module>itheima-leadnews-service-wemedia</module>
     </modules>
     <dependencies>
         <dependency>
