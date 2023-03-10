@@ -15,6 +15,7 @@
     <modules>
         <module>itheima-leadnews-core-controller</module>
         <module>itheima-leadnews-core-feign</module>
+        <module>itheima-leadnews-core-feign</module>
     </modules>
 	 <dependencies>
         <dependency>
