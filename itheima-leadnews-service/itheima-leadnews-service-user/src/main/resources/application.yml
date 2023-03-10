@@ -68,3 +68,14 @@ mybatis-plus:
   mapper-locations: classpath*:mapper/*.xml
   # 设置别名包扫描路径，通过该属性可以给包中的类注册别名
   type-aliases-package: com.itheima.user.pojo
+#okhttp设置
+feign:
+  client:
+    config:
+      default: # default指定的是所有的 被调用方  都设置为该配置超时时间，可以设置为某一个微服务对应的服务名
+        connectTimeout: 5000 # 链接超时时间
+        readTimeout: 5000 # 读取的超时时间
+  okhttp:
+    enabled: true
+  httpclient:
+    enabled: false
