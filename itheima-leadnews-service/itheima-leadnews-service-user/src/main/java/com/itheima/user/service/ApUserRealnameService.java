@@ -13,4 +13,17 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface ApUserRealnameService extends IService<ApUserRealname> {
 
+    /**
+     * 审核通过
+     * @param id
+     */
+    void pass(Integer id);
+
+    /**
+     * 审核拒绝
+     * @param id
+     * @param reason
+     */
+    void reject(Integer id, String reason);
+
 }
