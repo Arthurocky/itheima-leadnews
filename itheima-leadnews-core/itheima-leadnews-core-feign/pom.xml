@@ -10,6 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>itheima-leadnews-core-feign</artifactId>
+    <dependencies>
+        <!--使用okhttp-->
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-okhttp</artifactId>
+        </dependency>
 
-
+    </dependencies>
 </project>
