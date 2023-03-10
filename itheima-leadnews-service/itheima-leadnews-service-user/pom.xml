@@ -29,7 +29,18 @@
             <artifactId>itheima-leadnews-core-controller</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-   
+
+        <dependency>
+            <groupId>com.itheima</groupId>
+            <artifactId>itheima-leadnews-wemedia-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.itheima</groupId>
+            <artifactId>itheima-leadnews-article-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 

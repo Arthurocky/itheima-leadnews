@@ -1,12 +1,12 @@
 package com.itheima.user.controller;
 
 
+import com.itheima.common.pojo.Result;
 import com.itheima.user.pojo.ApUserRealname;
 import com.itheima.user.service.ApUserRealnameService;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import io.swagger.annotations.Api;
-import org.springframework.web.bind.annotation.RestController;
 import com.itheima.core.controller.AbstractCoreController;
 
 /**
@@ -27,6 +27,24 @@ public class ApUserRealnameController extends AbstractCoreController<ApUserRealn
     public ApUserRealnameController(ApUserRealnameService apUserRealnameService) {
         super(apUserRealnameService);
         this.apUserRealnameService=apUserRealnameService;
+    }
+
+    /**
+     * 审核通过
+     */
+    @PutMapping("/pass/{id}")
+    public Result pass(@PathVariable(name="id") Integer id){
+        apUserRealnameService.pass(id);
+        return Result.ok();
+    }
+
+    /**
+     * 驳回
+     */
+    @PutMapping("/reject/{id}")
+    public Result reject(@PathVariable(name="id")Integer id,@RequestParam(required = true,name="reason") String reason){
+        apUserRealnameService.reject(id,reason);
+        return Result.ok();
     }
 
 }

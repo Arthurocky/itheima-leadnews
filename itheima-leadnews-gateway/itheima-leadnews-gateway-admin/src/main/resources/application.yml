@@ -35,6 +35,13 @@ spring:
             - Path=/admin/**
           filters:
             - StripPrefix= 1
+        # 用户认证
+        - id: user
+          uri: lb://leadnews-user
+          predicates:
+            - Path=/user/**
+          filters:
+            - StripPrefix= 1
 ---
 server:
   port: 6001
