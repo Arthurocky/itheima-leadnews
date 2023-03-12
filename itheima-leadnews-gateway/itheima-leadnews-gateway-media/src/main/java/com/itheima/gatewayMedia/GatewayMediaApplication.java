@@ -1,10 +1,8 @@
-package com.itheima;
+package com.itheima.gatewayMedia;
 
-import com.github.tobato.fastdfs.FdfsClientConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.context.annotation.Import;
 
 
 /**
@@ -12,10 +10,8 @@ import org.springframework.context.annotation.Import;
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-//可以省略，DFS中已经配置了
-@Import(FdfsClientConfig.class)
-public class DfsApplication {
+public class GatewayMediaApplication {
     public static void main(String[] args) {
-        SpringApplication.run(DfsApplication.class, args);
+        SpringApplication.run(GatewayMediaApplication.class,args);
     }
 }

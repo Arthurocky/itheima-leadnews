@@ -1,0 +1,114 @@
+spring:
+  profiles:
+    active: dev
+---
+server:
+  port: 6002
+spring:
+  application:
+    name: leadnews-media-gateway
+  profiles: dev
+  cloud:
+    nacos:
+      server-addr: 192.168.211.136:8848
+      discovery:
+        server-addr: ${spring.cloud.nacos.server-addr}
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]': # 匹配所有请求
+            allowedOrigins: "*" #跨域处理 允许所有的域
+            allowedHeaders: "*"
+            allowedMethods: # 支持的方法
+              - GET
+              - POST
+              - PUT
+              - DELETE
+      routes:
+        # 平台管理
+        - id: media
+          uri: lb://leadnews-wemedia
+          predicates:
+            - Path=/media/**
+          filters:
+            - StripPrefix= 1
+        - id: dfs
+          uri: lb://leadnews-dfs
+          predicates:
+            - Path=/dfs/**
+          filters:
+            - StripPrefix= 1
+---
+server:
+  port: 6002
+spring:
+  application:
+    name: leadnews-media-gateway
+  profiles: test
+  cloud:
+    nacos:
+      server-addr: 192.168.211.136:8848
+      discovery:
+        server-addr: ${spring.cloud.nacos.server-addr}
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]': # 匹配所有请求
+            allowedOrigins: "*" #跨域处理 允许所有的域
+            allowedHeaders: "*"
+            allowedMethods: # 支持的方法
+              - GET
+              - POST
+              - PUT
+              - DELETE
+      routes:
+        # 平台管理
+        - id: media
+          uri: lb://leadnews-wemedia
+          predicates:
+            - Path=/media/**
+          filters:
+            - StripPrefix= 1
+        - id: dfs
+          uri: lb://leadnews-dfs
+          predicates:
+            - Path=/dfs/**
+          filters:
+            - StripPrefix= 1
+---
+server:
+  port: 6002
+spring:
+  application:
+    name: leadnews-media-gateway
+  profiles: pro
+  cloud:
+    nacos:
+      server-addr: 192.168.211.136:8848
+      discovery:
+        server-addr: ${spring.cloud.nacos.server-addr}
+    gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]': # 匹配所有请求
+            allowedOrigins: "*" #跨域处理 允许所有的域
+            allowedHeaders: "*"
+            allowedMethods: # 支持的方法
+              - GET
+              - POST
+              - PUT
+              - DELETE
+      routes:
+        # 平台管理
+        - id: media
+          uri: lb://leadnews-wemedia
+          predicates:
+            - Path=/media/**
+          filters:
+            - StripPrefix= 1
+        - id: dfs
+          uri: lb://leadnews-dfs
+          predicates:
+            - Path=/dfs/**
+          filters:
+            - StripPrefix= 1
