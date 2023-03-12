@@ -1,6 +1,7 @@
 package com.itheima.media.controller;
 
 import com.itheima.common.pojo.Result;
+import com.itheima.common.utils.RequestContextUtil;
 import com.itheima.core.controller.AbstractCoreController;
 import com.itheima.media.pojo.WmMaterial;
 import com.itheima.media.service.WmMaterialService;
@@ -36,8 +37,9 @@ public class WmMaterialController extends AbstractCoreController<WmMaterial> {
     @Override
     public Result insert(@RequestBody WmMaterial record) {
         //1.设置补充属性
-        //todo 先硬编码 设置为该素材所属的自媒体账号ID
-        record.setUserId(1000);
+        String userInfo = RequestContextUtil.getUserInfo();
+        int id = Integer.parseInt(userInfo);
+        record.setUserId(id);
         //未收藏
         record.setIsCollection(0);
         //图片

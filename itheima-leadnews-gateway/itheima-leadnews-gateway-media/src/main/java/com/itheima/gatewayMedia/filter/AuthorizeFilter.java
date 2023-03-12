@@ -50,8 +50,7 @@ public class AuthorizeFilter implements GlobalFilter, Ordered {
                 //解析数据  当前登录的自媒体的用户的ID
                 Claims claimsBody = AppJwtUtil.getClaimsBody(jwtToken);
                 //设置登录的用户的ID 头名为userId中并下发到下游微服务
-                String id = claimsBody.getId();
-
+                //String id = claimsBody.getId();-->
                 String userId = claimsBody.get("id").toString();
                 //添加请求头 并设置值 下放到下游微服务
                 request.mutate().header(SystemConstants.USER_HEADER_NAME,userId);
