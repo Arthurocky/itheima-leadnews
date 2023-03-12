@@ -23,4 +23,8 @@ public class SystemConstants {
      */
     public static final Integer JWT_FAIL = 0;
 
+    /**
+     * 请求头名
+     */
+    public static final String USER_HEADER_NAME = "userId";
 }

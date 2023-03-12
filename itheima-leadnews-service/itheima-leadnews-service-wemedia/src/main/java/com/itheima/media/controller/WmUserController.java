@@ -2,15 +2,17 @@ package com.itheima.media.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.itheima.common.exception.LeadNewsException;
+import com.itheima.common.pojo.Result;
 import com.itheima.core.controller.AbstractCoreController;
 import com.itheima.media.pojo.WmUser;
 import com.itheima.media.service.WmUserService;
+import com.itheima.media.vo.LoginMediaVo;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 /**
 * <p>
@@ -43,6 +45,19 @@ public class WmUserController extends AbstractCoreController<WmUser> {
         QueryWrapper<WmUser> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("ap_user_id",apUserId);
         return  wmUserService.getOne(queryWrapper);
+    }
+
+    /**
+     * 登录功能实现
+     * @param loginMediaVo
+     * @return
+     * @throws LeadNewsException
+     */
+    @PostMapping("/login")
+    public Result<Map<String,Object>> login(@RequestBody LoginMediaVo loginMediaVo) throws LeadNewsException
+    {
+        Map<String,Object> info = wmUserService.login(loginMediaVo);
+        return Result.ok(info);
     }
 
 }
