@@ -7,6 +7,8 @@ import com.itheima.media.dto.WmNewsDtoSave;
 import com.itheima.media.pojo.WmNews;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.io.Serializable;
+
 /**
  * <p>
  * 自媒体图文内容信息表 服务类
@@ -30,4 +32,14 @@ public interface WmNewsService extends IService<WmNews> {
      * @param isSubmit
      */
     WmNews save(WmNewsDtoSave wmNewsDtoSave, Integer isSubmit);
+
+    /**
+     * 根据ID查询
+     * @param id
+     * @return
+     */
+    WmNewsDtoSave getDtoById(Integer id);
+
+
+
 }
