@@ -1,6 +1,6 @@
-package com.itheima.service.impl;
-import com.itheima.pojo.BaseFileModel;
-import com.itheima.pojo.DFSType;
+package com.itheima.dfs.service.impl;
+import com.itheima.dfs.pojo.BaseFileModel;
+import com.itheima.dfs.pojo.DFSType;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

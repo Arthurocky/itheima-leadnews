@@ -1,7 +1,6 @@
-package com.itheima.service;
+package com.itheima.dfs.service;
 
-import com.itheima.pojo.BaseFileModel;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.itheima.dfs.pojo.BaseFileModel;
 
 import java.util.List;
 
