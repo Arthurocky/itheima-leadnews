@@ -18,7 +18,7 @@ import java.util.Map;
 /**
  * @author Arthurocky
  */
-@RestController
+//@RestController
 @RequestMapping("/dfs")
 public class FileController {
 
