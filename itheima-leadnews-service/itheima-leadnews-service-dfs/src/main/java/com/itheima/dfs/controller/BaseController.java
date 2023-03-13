@@ -1,11 +1,14 @@
-package com.itheima.controller;
+package com.itheima.dfs.controller;
 
 import com.itheima.common.pojo.Result;
 import com.itheima.common.utils.RequestContextUtil;
-import com.itheima.pojo.BaseFileModel;
-import com.itheima.service.IFileService;
+import com.itheima.dfs.pojo.BaseFileModel;
+import com.itheima.dfs.pojo.DFSType;
+import com.itheima.dfs.service.IFileService;
+import com.itheima.dfs.strategy.FileServiceStrategyContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,10 +24,22 @@ import java.util.Map;
 @RequestMapping("/dfs")
 public class BaseController {
 
+
+    @Value("${fdfs.type}")
+    private String type;
+
+    @Autowired
+    FileServiceStrategyContext context;
+
+    IFileService iFileService = context.getIFleService(DFSType.valueOf(type));
+
+
+/*
     @Autowired
     //根据bean名字获取,指定使用fdfsFile
     @Qualifier(value = "fdfsFileTemplate")
     private IFileService iFileService;
+*/
 
 
     @PostMapping("/upload")

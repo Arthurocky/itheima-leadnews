@@ -1,7 +1,7 @@
-package com.itheima.service.impl;
+package com.itheima.dfs.service.impl;
 
-import com.itheima.pojo.DFSType;
-import com.itheima.service.IFileService;
+import com.itheima.dfs.pojo.DFSType;
+import com.itheima.dfs.service.IFileService;
 import org.springframework.beans.factory.InitializingBean;
 
 public abstract class AbstractDfsTemplate implements IFileService, InitializingBean {

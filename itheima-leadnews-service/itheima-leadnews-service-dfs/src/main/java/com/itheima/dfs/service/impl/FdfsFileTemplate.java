@@ -1,11 +1,11 @@
-package com.itheima.service.impl;
+package com.itheima.dfs.service.impl;
 
 import com.github.tobato.fastdfs.domain.conn.FdfsWebServer;
 import com.github.tobato.fastdfs.domain.fdfs.MetaData;
 import com.github.tobato.fastdfs.domain.fdfs.StorePath;
 import com.github.tobato.fastdfs.service.FastFileStorageClient;
-import com.itheima.pojo.BaseFileModel;
-import com.itheima.pojo.DFSType;
+import com.itheima.dfs.pojo.BaseFileModel;
+import com.itheima.dfs.pojo.DFSType;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
