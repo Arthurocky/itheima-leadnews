@@ -19,8 +19,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -138,6 +140,34 @@ public class WmNewsServiceImpl extends ServiceImpl<WmNewsMapper, WmNews> impleme
             wmNewsMapper.insert(wmNews);
         }
         return wmNews;
+    }
+
+    /**
+     * 根据ID查询
+     * @param id
+     * @return
+     */
+    @Override
+    public WmNewsDtoSave getDtoById(Integer id)
+    {
+        WmNews wmNews = wmNewsMapper.selectById(id);
+        if (wmNews != null) {
+            WmNewsDtoSave wmNewsDtoSave = new WmNewsDtoSave();
+            //copy
+            BeanUtils.copyProperties(wmNews, wmNewsDtoSave);
+            //设置内容,转为JSON显示
+            String content = wmNews.getContent();
+            List<ContentNode> contentNodes = JSON.parseArray(content, ContentNode.class);
+            wmNewsDtoSave.setContent(contentNodes);
+            //设置图片
+            String images = wmNews.getImages();
+            if (!StringUtils.isEmpty(images)) {
+                //设置图片列表
+                wmNewsDtoSave.setImages(Arrays.asList(images.split(",")));
+            }
+            return wmNewsDtoSave;
+        }
+        return null;
     }
 
 
