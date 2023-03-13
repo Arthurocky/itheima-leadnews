@@ -20,7 +20,7 @@ import java.util.List;
  * @author Arthurocky
  */
 @RestController
-@RequestMapping("/channel")
+@RequestMapping("/adChannel")
 @Api(value = "频道管理", tags = "channel管理", description = "这个是描述频道管理的接口")
 public class AdChannelController extends AbstractCoreController<AdChannel> {
 
